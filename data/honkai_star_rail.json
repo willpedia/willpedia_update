@@ -1,0 +1,12 @@
+{
+  "game": "Honkai Star Rail",
+  "items": [
+    { "name": "60 Oneiric Shard", "price": 12000 },
+    { "name": "300 + 30 Oneiric Shard", "price": 56000 },
+    { "name": "Express Suplly Pass", "price": 56000 },
+    { "name": "980 + 110 Oneiric Shard", "price": 171000 },
+    { "name": "1980 + 260 Oneiric Shard", "price": 342000 },
+    { "name": "3280 + 600 Oneiric Shard", "price": 585000 },
+    { "name": "6480 + 1600 Oneiric Shard", "price": 1104000 }
+  ]
+}

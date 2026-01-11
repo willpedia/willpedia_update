@@ -1,0 +1,12 @@
+{
+  "game": "Zenless Zone Zero",
+  "items": [
+    { "name": "60 Monochromes", "price": 12000 },
+    { "name": "300 + 30 Monochromes", "price": 55000 },
+    { "name": "Inter-Knot Membership", "price": 55000 },
+    { "name": "980 + 110 Monochromes", "price": 170000 },
+    { "name": "1980 + 260 Monochromes", "price": 345000 },
+    { "name": "3280 + 600 Monochromes", "price": 590000 },
+    { "name": "6480 + 1600 Monochromes", "price": 1097000 }
+  ]
+}

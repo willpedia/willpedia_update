@@ -1,0 +1,12 @@
+{
+  "game": "Genshin Impact",
+  "items": [
+    { "name": "60 Genesis Crystals", "price": 12000 },
+    { "name": "300 + 30 Genesis Crystal", "price": 56000 },
+    { "name": "Blessing of the Welkin Moon", "price": 56000 },
+    { "name": "980 + 110 Genesis Crystals", "price": 170000 },
+    { "name": "1980 + 260 Genesis Crystals", "price": 355000 },
+    { "name": "3280 + 600 Genesis Crystals", "price": 581500 },
+    { "name": "6480 + 1600 Genesis Crystals", "price": 1110500 }
+  ]
+}
