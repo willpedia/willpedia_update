@@ -25,6 +25,7 @@ label {
   font-weight: bold;
   margin-top: 12px;
   display: block;
+  text-align: center;
 }
 
 select {
@@ -136,3 +137,4 @@ footer {
   font-weight: bold;
   color: #25D366;
 }
+
