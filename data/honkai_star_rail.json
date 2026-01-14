@@ -2,16 +2,17 @@
   "game": "Honkai Star Rail",
   "items": [
     { "name": "60 Oneiric Shard", "price": 12000 },
-    { "name": "300 + 30 Oneiric Shard", "price": 56000 },
+    { "name": "330 (300 + 30 Bonus) Oneiric Shard", "price": 56000 },
     { "name": "Express Suplly Pass", "price": 56000 },
     { "name": "Express Suplly Pass x2", "price": 111000 },
     { "name": "Express Suplly Pass x3", "price": 167000 },
     { "name": "Express Suplly Pass x4", "price": 222000 },
     { "name": "Express Suplly Pass x5", "price": 278000 },
-    { "name": "980 + 110 Oneiric Shard", "price": 173500 },
-    { "name": "1980 + 260 Oneiric Shard", "price": 351000 },
-    { "name": "3280 + 600 Oneiric Shard", "price": 585000 },
-    { "name": "6480 + 1600 Oneiric Shard", "price": 1116000 }
+    { "name": "1090 (980 + 110 Bonus) Oneiric Shard", "price": 173500 },
+    { "name": "2240 (1980 + 260 Bonus) Oneiric Shard", "price": 351000 },
+    { "name": "3880 (3280 + 600 Bonus) Oneiric Shard", "price": 585000 },
+    { "name": "8080 (6480 + 1600 Bonus) Oneiric Shard", "price": 1116000 }
   ]
 }
+
 
