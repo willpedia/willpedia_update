@@ -1,147 +1,153 @@
+/* ===== THEME DARK MODERN ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1e1e1e, #0f0f0f);
   margin: 0;
+  color: #fff;
 }
 
+/* CONTAINER */
 .container {
   max-width: 420px;
   margin: auto;
-  padding: 16px;
+  padding: 14px 14px 28px;
 }
 
+/* TITLE */
 h1 {
   text-align: center;
-  margin-bottom: 4px;
+  font-size: 20px;
+  margin-bottom: 6px;
 }
 
 .subtitle {
   text-align: center;
-  color: #555;
-  margin-bottom: 20px;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 18px;
 }
 
-label {
-  text-align: center;
-  font-weight: bold;
-  margin-top: 12px;
-  display: block;
-}
-
-select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.price {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-.btn-wa {
-  display: block;
-  background: #25D366;
-  color: #fff;
-  text-align: center;
-  padding: 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #777;
-  margin-top: 20px;
-}
-
-/* GRID GAME */
+/* ===== GRID GAME ===== */
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 /* CARD GAME */
 .game-card {
-  background: #1f1f1f;
-  border-radius: 14px;
-  padding: 10px;
+  background: linear-gradient(145deg, #1c1c1c, #262626);
+  border-radius: 18px;
+  padding: 14px 10px;
   text-align: center;
   cursor: pointer;
-  transition: 0.2s ease;
   border: 2px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s;
+  animation: fadeUp 0.4s ease both;
 }
 
-/* LOGO GAME */
+/* LOGO GAME (PAS DI BOX) */
 .game-card img {
-  width: 100%;
-  height: 70px;              /* 🔥 kunci biar seragam */
-  object-fit: contain;       /* logo tidak kepotong */
-  margin-bottom: 6px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
 }
 
 /* NAMA GAME */
 .game-card span {
-  font-size: 12px;
-  color: #fff;
-}
-
-/* HOVER */
-.game-card:hover {
-  transform: translateY(-3px);
-  background: #2a2a2a;
+  font-size: 11px;
+  color: #eaeaea;
+  line-height: 1.2;
 }
 
 /* ACTIVE */
 .game-card.active {
   border-color: #25D366;
-  background: #2d2d2d;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2),
+              0 10px 20px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
 }
 
+/* TAP */
+.game-card:active {
+  transform: scale(0.95);
+}
+
+/* ===== ITEM LIST ===== */
 .item-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
+/* ITEM CARD */
 .item-card {
-  background: #1f1f1f;
-  padding: 12px;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #1c1c1c, #242424);
+  padding: 14px;
+  border-radius: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.item-card:hover {
-  background: #2a2a2a;
+  animation: fadeUp 0.35s ease both;
 }
 
 .item-name {
   font-size: 14px;
-  color: #ffffff; 
+  color: #fff;
 }
 
 .item-price {
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 14px;
   color: #25D366;
 }
 
+/* PRICE */
+.price {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 18px 0;
+  color: #25D366;
+}
 
+/* BUTTON WA */
+.btn-wa {
+  display: block;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+}
 
+.btn-wa:active {
+  transform: scale(0.96);
+}
 
+/* FOOTER */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 24px;
+}
 
-
-
-
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
