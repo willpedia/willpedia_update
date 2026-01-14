@@ -21,7 +21,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.label {
+label {
   text-align: center;
   font-weight: bold;
   margin-top: 12px;
@@ -137,6 +137,7 @@ footer {
   font-weight: bold;
   color: #25D366;
 }
+
 
 
 
