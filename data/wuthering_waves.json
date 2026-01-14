@@ -1,1 +1,13 @@
+{
+  "game": "Wuthering Waves",
+  "items": [
+    { "name": "60 Lunites", "price": 15000 },
+    { "name": "300 + 30 Lunites", "price": 74500 },
+    { "name": "Lunite Subscription", "price": 74500 },
+    { "name": "1090 Lunites (980 + 110 Bonus) ", "price": 224000 },
+    { "name": "2240 Lunites (1980 + 260 Bonus) ", "price": 446000 },
+    { "name": "3880 Lunites (3280 + 600 Bonus) ", "price": 737000 },
+    { "name": "8080 Lunites (6480 + 1600 Bonus) ", "price": 1450000 }
+  ]
+}
 
