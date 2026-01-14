@@ -170,7 +170,7 @@ footer {
   font-size: 14px;
   color: #ffb7c5;
   padding: 18px 0;
-  animation: fadeUp 0.4s ease;
+  animation: fadeUp 0.7s ease;
 }
 
 .loader {
@@ -179,7 +179,7 @@ footer {
   border: 2px solid rgba(255,183,197,0.3);
   border-top-color: #ffb7c5;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
@@ -197,3 +197,4 @@ footer {
     transform: translateY(0);
   }
 }
+
