@@ -32,7 +32,7 @@ gameCards.forEach(card => {
 
     try {
       /* ===== FORCE DELAY (300ms) ===== */
-      await new Promise(res => setTimeout(res, 300));
+      await new Promise(res => setTimeout(res, 600));
 
       const res = await fetch(`data/${currentGame}.json`);
       const data = await res.json();
@@ -56,3 +56,4 @@ gameCards.forEach(card => {
     }
   });
 });
+
