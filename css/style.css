@@ -21,7 +21,12 @@ h1 {
   margin-bottom: 20px;
 }
 
-
+.label {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 12px;
+  display: block;
+}
 
 select {
   width: 100%;
@@ -132,6 +137,7 @@ footer {
   font-weight: bold;
   color: #25D366;
 }
+
 
 
 
