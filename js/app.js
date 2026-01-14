@@ -1,10 +1,30 @@
 const gameCards = document.querySelectorAll(".game-card");
 const itemList = document.getElementById("itemList");
+const itemSection = document.querySelector(".item-list");
+const priceSection = document.querySelector(".price");
 
 let currentGame = "";
 let currentGameName = "";
 
-const phone = "628xxxxxxxxxx"
+gameCards.forEach(card => {
+  card.addEventListener("click", () => {
+
+    // reset active
+    gameCards.forEach(c => c.classList.remove("active"));
+
+    // aktifkan card
+    card.classList.add("active");
+
+    // auto scroll ke item / harga
+    setTimeout(() => {
+      (itemSection || priceSection)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 200);
+  });
+});
+
 
 gameCards.forEach(card => {
   card.addEventListener("click", async () => {
