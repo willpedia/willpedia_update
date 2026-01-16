@@ -2,8 +2,8 @@
   "game": "Zenless Zone Zero",
   "items": [
     { "name": "60 Monochromes", "price": 12000 },
-    { "name": "330 (300 + 30 Bonus) Monochromes", "price": 55000 },
-    { "name": "Inter-Knot Membership", "price": 57000 },
+    { "name": "330 (300 + 30 Bonus) Monochromes", "price": 55500 },
+    { "name": "Inter-Knot Membership", "price": 55500 },
     { "name": "Inter-Knot Membership x2", "price": 113000 },
     { "name": "Inter-Knot Membership x3", "price": 170000 },
     { "name": "Inter-Knot Membership x4", "price": 226000 },
@@ -14,5 +14,6 @@
     { "name": "8080 (6480 + 1600 Bonus) Monochromes", "price": 1140000 }
   ]
 }
+
 
 
