@@ -4,16 +4,13 @@
     { "name": "60 Monochromes", "price": 12000 },
     { "name": "330 (300 + 30 Bonus) Monochromes", "price": 55500 },
     { "name": "Inter-Knot Membership", "price": 55500 },
-    { "name": "Inter-Knot Membership x2", "price": 113000 },
-    { "name": "Inter-Knot Membership x3", "price": 170000 },
-    { "name": "Inter-Knot Membership x4", "price": 226000 },
-    { "name": "Inter-Knot Membership x5", "price": 283000 },
     { "name": "1090 (980 + 110 Bonus) Monochromes", "price": 175000 },
     { "name": "2240 (1980 + 260 Bonus) Monochromes", "price": 378000 },
     { "name": "3880 (3280 + 600 Bonus) Monochromes", "price": 587000 },
     { "name": "8080 (6480 + 1600 Bonus) Monochromes", "price": 1140000 }
   ]
 }
+
 
 
 
