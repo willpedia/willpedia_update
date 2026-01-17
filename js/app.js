@@ -2,9 +2,22 @@ const gameCards = document.querySelectorAll(".game-card");
 const itemList = document.getElementById("itemList");
 const itemSection = document.querySelector(".item-list");
 const priceSection = document.querySelector(".price");
+const menuBtn = document.querySelector(".menu-btn");
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("overlay");
 
 let currentGame = "";
 let currentGameName = "";
+
+menuBtn.addEventListener("click", () => {
+  drawer.classList.toggle("active");
+  overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+  drawer.classList.remove("active");
+  overlay.classList.remove("active");
+});
 
 gameCards.forEach(card => {
   card.addEventListener("click", async () => {
@@ -22,13 +35,6 @@ gameCards.forEach(card => {
         Loading
       </div>
     `;
-
-    setTimeout(() => {
-      (itemSection || priceSection)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }, 150);
 
     try {
       /* ===== FORCE DELAY (300ms) ===== */
@@ -56,4 +62,3 @@ gameCards.forEach(card => {
     }
   });
 });
-
