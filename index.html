@@ -1,110 +1,97 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WILLPEDIA Top Up - Cek Harga</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WILLPEDIA Top Up - Cek Harga</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
-<header class="navbar">
-  <button class="menu-btn" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+    <header class="navbar">
+        <button class="menu-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-  <div class="nav-logo">
-    <img src="assets/logo-willpedia.png" alt="WILLPEDIA">
-    <span>WILLPEDIA</span>
-  </div>
-</header>
+        <div class="nav-logo">
+            <img src="assets/logo-willpedia.png" alt="WILLPEDIA">
+            <span>WILLPEDIA</span>
+        </div>
+    </header>
 
-<!-- OVERLAY -->
-<div id="overlay" class="overlay"></div>
+    <div id="overlay" class="overlay"></div>
 
-<!-- DRAWER -->
-<aside id="drawer" class="drawer">
-  <div class="drawer-header">
-    
-  </div>
+    <aside id="drawer" class="drawer">
+        <div class="drawer-header">
+            </div>
 
-  <nav class="drawer-menu">
-    <a href="#">Beranda</a>
-    <a href="#">Cek Harga Joki</a>
-    <a href="https://wa.me/6281357706121" target="_blank">Hubungi CS</a>
-  </nav>
-</aside>
+        <nav class="drawer-menu">
+            <a href="#">Beranda</a>
+            <a href="#">Cek Harga Joki</a>
+            <a href="https://wa.me/6281357706121" target="_blank">Hubungi CS</a>
+        </nav>
+    </aside>
 
-<div class="container">
-  <p class="subtitle">CEK HARGA TOPUP GAME</p>
+    <div class="container">
+        <p class="subtitle">CEK HARGA TOPUP GAME</p>
 
-  <!-- SLIDER -->
-  <div class="slider">
-    <div class="slides-track">
-      <div class="slide">
-        <img src="assets/columbina.png" alt="Promo 1">
-      </div>
-      <div class="slide">
-        <img src="assets/inefa.png" alt="Promo 2">
-      </div>
-      <div class="slide">
-        <img src="assets/hsr1.png" alt="Promo 3">
-      </div>
-      <div class="slide">
-        <img src="assets/gi1.png" alt="Promo 3">
-      </div>
+        <div class="slider">
+            <div class="slides-track">
+                <div class="slide">
+                    <img src="assets/tes1.png" alt="Promo 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/tes2.png" alt="Promo 2">
+                </div>
+                <div class="slide">
+                    <img src="assets/tes3.png" alt="Promo 3">
+                </div>
+                <div class="slide">
+                    <img src="assets/tes1.png" alt="Promo 1 (Klon)">
+                </div>
+            </div>
+        </div>
+
+        <div class="game-grid">
+            <div class="game-card" data-game="zenless_zone_zero">
+                <img src="assets/Zenless_Zone_Zero.png" alt="Zenless Zone Zero">
+                <span>Zenless Zone Zero</span>
+            </div>
+            <div class="game-card" data-game="genshin_impact">
+                <img src="assets/Genshin_Impact.png" alt="Genshin Impact">
+                <span>Genshin Impact</span>
+            </div>
+            <div class="game-card" data-game="honkai_star_rail">
+                <img src="assets/Honkai_Star_Rail.png" alt="Honkai Star Rail">
+                <span>Honkai Star Rail</span>
+            </div>
+        </div>
+        
+        <div class="game-grid">
+            <div class="game-card" data-game="wuthering_waves">
+                <img src="assets/Wuthering_Waves.png" alt="Wuthering Waves">
+                <span>Wuthering Waves</span>
+            </div>
+            <div class="game-card" data-game="mobile_legends">
+                <img src="assets/mobile_legends.png" alt="Mobile Legends">
+                <span>Mobile Legends</span>
+            </div>
+            <div class="game-card" data-game="valorant">
+                <img src="assets/Valorant.png" alt="Valorant">
+                <span>Valorant</span>
+            </div>
+        </div>
+
+        <div id="itemList" class="item-list"></div>
+
+        <a id="waBtn" class="btn-wa" href="https://wa.me/6281357706121" target="_blank">
+            BELI SEKARANG 
+        </a>
     </div>
-  </div>
 
-  <!-- PILIH GAME (LOGO) -->
-  <div class="game-grid">
-    <div class="game-card" data-game="zenless_zone_zero">
-      <img src="assets/Zenless_Zone_Zero.png" alt="Zenless Zone Zero">
-      <span>Zenless Zone Zero</span>
-    </div>
+    <footer>© WILLPEDIA 2026</footer>
 
-    <div class="game-card" data-game="genshin_impact">
-      <img src="assets/Genshin_Impact.png" alt="Genshin Impact">
-      <span>Genshin Impact</span>
-    </div>
-
-    <div class="game-card" data-game="honkai_star_rail">
-      <img src="assets/Honkai_Star_Rail.png" alt="Honkai Star Rail">
-      <span>Honkai Star Rail</span>
-    </div>
-  </div>
-  
-  <div class="game-grid">
-    <div class="game-card" data-game="wuthering_waves">
-      <img src="assets/Wuthering_Waves.png" alt="Wuthering Waves">
-      <span>Wuthering Waves</span>
-    </div>
-    
-    <div class="game-card" data-game="mobile_legends">
-      <img src="assets/mobile_legends.png" alt="Mobile Legends">
-      <span>Mobile Legends</span>
-    </div>
-
-    <div class="game-card" data-game="valorant">
-      <img src="assets/Valorant.png" alt="Valorant">
-      <span>Valorant</span>
-    </div>
-  </div>
-
-  <!-- PILIH ITEM -->
-  <div id="itemList" class="item-list"></div>
-
-  <!-- TOMBOL WA -->
-  <a id="waBtn" class="btn-wa" href="https://wa.me/6281357706121" target="_blank">
-    BELI SEKARANG 
-  </a>
-</div>
-
-<footer>© WILLPEDIA 2026</footer>
-
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
-
