@@ -1,0 +1,17 @@
+{
+  "game": "Mobile Legends",
+  "items": [
+    { "name": "28 Diamonds (25 + 3 Bonus)", "price": 9000 },
+    { "name": "59 Diamonds (53 + 6 Bonus)", "price": 17000 },
+    { "name": "Weekly Diamond Pass", "price": 29000 },
+    { "name": "170 Diamonds (154 + 16 Bonus)", "price": 45000 },
+    { "name": "240 Diamonds (217 + 23 Bonus)", "price": 63500 },
+    { "name": "296 Diamonds (256 + 40 Bonus)", "price": 77500 },
+    { "name": "408 Diamonds (367 + 41 Bonus)", "price": 107000 },
+    { "name": "568 Diamonds (503 + 65 Bonus)", "price": 146000 },
+    { "name": "Twilight Pass", "price": 150000 },
+    { "name": "875 Diamonds (774 + 101 Bonus)", "price": 224000 },
+    { "name": "2010 Diamonds (1708 + 302 Bonus)", "price": 486000 },
+    { "name": "4830 Diamonds (4003 + 827 Bonus)", "price": 1168000 }
+  ]
+}
