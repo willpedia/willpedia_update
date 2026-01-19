@@ -14,11 +14,12 @@ const searchResults = document.getElementById("searchResults");
 // DAFTAR FILE DATA (Wajib update jika ada file .json baru)
 const allDataFiles = [
     "genshin_impact.json",
+    "genshin_impact_joki.json",
     "honkai_star_rail.json",
     "mobile_legends.json",
-    "valorant.json",
+    "zenless_zone_zero.json",
     "wuthering_waves.json",
-    "zenless_zone_zero.json"
+    "valorant.json"
 ];
 
 // ==========================================
@@ -31,29 +32,30 @@ const nextBtn = document.getElementById("nextBtn");
 const dotsContainer = document.getElementById("sliderDots");
 
 const totalSlides = allSlides.length; 
-const realSlidesCount = totalSlides - 1; // Kecuali klon
+const realSlidesCount = totalSlides; // Disesuaikan jika tidak ada klon manual
 let index = 0;
 let isTransitioning = false;
 
-// Buat Titik Indikator (Dots) secara otomatis
-for (let i = 0; i < realSlidesCount; i++) {
-    const dot = document.createElement("div");
-    dot.classList.add("dot");
-    if (i === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => {
-        if (isTransitioning) return;
-        index = i;
-        updateSlider();
-        resetAutoSlide();
-    });
-    dotsContainer.appendChild(dot);
+// Buat Titik Indikator secara otomatis
+if (dotsContainer) {
+    for (let i = 0; i < realSlidesCount; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+            if (isTransitioning) return;
+            index = i;
+            updateSlider();
+            resetAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+    }
 }
 
 function updateDots() {
     const dots = document.querySelectorAll(".dot");
-    const activeIndex = index % realSlidesCount;
     dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === activeIndex);
+        dot.classList.toggle("active", i === index);
     });
 }
 
@@ -65,38 +67,16 @@ function updateSlider() {
 
 function nextSlide() {
     if (isTransitioning) return;
-    index++;
+    index = (index + 1) % totalSlides;
     updateSlider();
-
-    if (index === totalSlides - 1) {
-        isTransitioning = true;
-        setTimeout(() => {
-            track.style.transition = "none";
-            index = 0;
-            track.style.transform = `translateX(0)`;
-            updateDots();
-            isTransitioning = false;
-        }, 700);
-    }
 }
 
 function prevSlide() {
     if (isTransitioning) return;
-    if (index === 0) {
-        track.style.transition = "none";
-        index = totalSlides - 1;
-        track.style.transform = `translateX(-${index * 100}%)`;
-        setTimeout(() => {
-            index--;
-            updateSlider();
-        }, 10);
-    } else {
-        index--;
-        updateSlider();
-    }
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlider();
 }
 
-// Event Slider
 if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetAutoSlide(); });
 if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetAutoSlide(); });
 
@@ -107,28 +87,38 @@ function resetAutoSlide() {
 }
 
 // ==========================================
-// 3. LOGIKA GLOBAL SEARCH (OVERLAY)
+// 3. LOGIKA GLOBAL SEARCH (KEBAL TYPO & SPASI)
 // ==========================================
 async function globalSearch(query) {
-    if (query.length < 2) {
+    // 1. Bersihkan spasi di awal/akhir dan ubah ke huruf kecil
+    const cleanQuery = query.trim().toLowerCase();
+
+    if (cleanQuery.length < 2) {
         searchOverlay.classList.remove("active");
         return;
     }
 
     searchOverlay.classList.add("active");
     closeMenu();
-    searchResults.innerHTML = `<div class="loading">Mencari item...</div>`;
+    searchResults.innerHTML = `<div class="loading"><span class="loader"></span> Mencari "${query}"...</div>`;
 
     const fetchPromises = allDataFiles.map(async (file) => {
         try {
             const res = await fetch(`data/${file}`);
+            if (!res.ok) return [];
             const data = await res.json();
-            const found = data.items.filter(item => 
-                item.name.toLowerCase().includes(query.toLowerCase())
-            );
+            
+            const gameTitle = (data.game || "").toLowerCase();
+
+            // 2. Filter: Cek di Nama Item ATAU Nama Game
+            const found = data.items.filter(item => {
+                const itemName = item.name.toLowerCase();
+                return itemName.includes(cleanQuery) || gameTitle.includes(cleanQuery);
+            });
+
             return found.map(item => ({
                 ...item,
-                gameSource: file.replace(".json", "").replace(/_/g, " ")
+                gameSource: data.game || file.replace(".json", "").replace(/_/g, " ")
             }));
         } catch (e) { return []; }
     });
@@ -164,16 +154,11 @@ function renderSearchResults(results) {
     });
 }
 
+// Event Search
 if (searchInput) {
     searchInput.addEventListener("input", (e) => globalSearch(e.target.value));
-    searchInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            globalSearch(e.target.value);
-            searchInput.blur();
-        }
-    });
     searchInput.addEventListener("focus", () => {
-        if (searchInput.value.length >= 2) searchOverlay.classList.add("active");
+        if (searchInput.value.trim().length >= 2) searchOverlay.classList.add("active");
         closeMenu();
     });
 }
@@ -188,19 +173,23 @@ function openMenu() {
 }
 
 function closeMenu() {
-    drawer.classList.remove("active");
-    overlay.classList.remove("active");
+    if(drawer) drawer.classList.remove("active");
+    if(overlay) overlay.classList.remove("active");
 }
 
-menuBtn.addEventListener("click", () => {
-    drawer.classList.contains("active") ? closeMenu() : openMenu();
-});
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+        drawer.classList.contains("active") ? closeMenu() : openMenu();
+    });
+}
 
 if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-overlay.addEventListener("click", () => {
-    closeMenu();
-    searchOverlay.classList.remove("active");
-});
+if (overlay) {
+    overlay.addEventListener("click", () => {
+        closeMenu();
+        searchOverlay.classList.remove("active");
+    });
+}
 
 // ==========================================
 // 5. LOGIKA PILIH GAME (GRID)
@@ -215,7 +204,6 @@ gameCards.forEach(card => {
         itemList.innerHTML = `<div class="loading"><span class="loader"></span> Memuat Harga...</div>`;
 
         try {
-            await new Promise(res => setTimeout(res, 500));
             const res = await fetch(`data/${currentGame}.json`);
             if (!res.ok) throw new Error();
             const data = await res.json();
@@ -235,4 +223,3 @@ gameCards.forEach(card => {
         }
     });
 });
-
