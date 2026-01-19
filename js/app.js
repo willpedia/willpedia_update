@@ -14,9 +14,10 @@ const searchResults = document.getElementById("searchResults");
 // DAFTAR FILE DATA (Wajib update jika ada file .json baru)
 const allDataFiles = [
     "genshin_impact.json",
-    "genshin_impact_joki.json",
     "honkai_star_rail.json",
     "mobile_legends.json",
+    "valorant.json",
+    "wuthering_waves.json",
     "zenless_zone_zero.json"
 ];
 
@@ -234,3 +235,4 @@ gameCards.forEach(card => {
         }
     });
 });
+
