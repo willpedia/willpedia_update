@@ -1,80 +1,143 @@
-// SELEKTOR UTAMA
+// ==========================================
+// 1. SELEKTOR UTAMA
+// ==========================================
 const gameCards = document.querySelectorAll(".game-card");
 const itemList = document.getElementById("itemList");
 const menuBtn = document.querySelector(".menu-btn");
 const drawer = document.getElementById("drawer");
 const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeDrawer");
 
-// SELEKTOR SLIDER UNTUK INFINITE LOOP
+// ==========================================
+// 2. LOGIKA SLIDER (INFINITE LOOP + MANUAL)
+// ==========================================
 const track = document.querySelector('.slides-track');
-const allSlides = document.querySelectorAll(".slide"); 
-const totalSlides = allSlides.length; // Sekarang ini akan menjadi 4 (3 slide asli + 1 klon)
-let index = 0; // Mulai dari slide pertama (index 0)
+const allSlides = document.querySelectorAll(".slide");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-// FUNGSI AUTO SLIDE DENGAN EFEK INFINITE LOOP
-function autoSlide() {
-    index++; // Pindah ke slide berikutnya
+const totalSlides = allSlides.length; 
+let index = 0;
+let isTransitioning = false; // Mencegah spam klik saat animasi jalan
 
-    // Set transisi agar animasi geser terlihat
-    track.style.transition = "transform 0.6s ease-in-out";
+// Fungsi Update Posisi Slider
+function updateSlider() {
+    track.style.transition = "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)";
     track.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    // Jika sudah mencapai slide klon (slide terakhir yang menduplikasi slide pertama)
-    if (index === totalSlides - 1) { // totalSlides - 1 adalah index dari slide klon
+// Fungsi Slide Berikutnya (Next)
+function nextSlide() {
+    if (isTransitioning) return;
+    index++;
+    updateSlider();
+
+    if (index === totalSlides - 1) {
+        isTransitioning = true;
         setTimeout(() => {
-            // Setelah animasi geser ke klon selesai, langsung pindah ke slide pertama (index 0)
-            // Tanpa transisi agar tidak terlihat melompat balik
             track.style.transition = "none";
-            index = 0; // Reset index ke awal
-            track.style.transform = `translateX(0)`; // Pindah posisi ke slide pertama
-        }, 600); // Waktu ini harus sama dengan durasi transisi di CSS (0.6s = 600ms)
+            index = 0;
+            track.style.transform = `translateX(0)`;
+            isTransitioning = false;
+        }, 700);
     }
 }
 
-// Jalankan auto-slide setiap 3 detik
-setInterval(autoSlide, 3000);
+// Fungsi Slide Sebelumnya (Prev)
+function prevSlide() {
+    if (isTransitioning) return;
+    
+    if (index === 0) {
+        // Teleport ke klon terakhir tanpa animasi
+        track.style.transition = "none";
+        index = totalSlides - 1;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Jeda sangat singkat lalu geser ke gambar asli terakhir dengan animasi
+        setTimeout(() => {
+            index--;
+            updateSlider();
+        }, 10);
+    } else {
+        index--;
+        updateSlider();
+    }
+}
 
-// NAVIGASI DRAWER (Hamburger Menu)
-menuBtn.addEventListener("click", () => {
-    drawer.classList.toggle("active");
-    overlay.classList.toggle("active");
+// Event Listener Tombol Slider
+if (nextBtn) nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoSlide();
 });
 
-overlay.addEventListener("click", () => {
+if (prevBtn) prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoSlide();
+});
+
+// Auto Slide Timer
+let autoSlideInterval = setInterval(nextSlide, 4000);
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+// ==========================================
+// 3. LOGIKA NAVIGASI (DRAWER)
+// ==========================================
+function openMenu() {
+    drawer.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeMenu() {
     drawer.classList.remove("active");
     overlay.classList.remove("active");
+}
+
+// Tombol Hamburger (Toggle)
+menuBtn.addEventListener("click", () => {
+    if (drawer.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
 
-// LOGIKA PILIH GAME & FETCH DATA
+// Tombol Silang & Overlay
+if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
+// ==========================================
+// 4. LOGIKA PILIH GAME & FETCH DATA
+// ==========================================
 gameCards.forEach(card => {
     card.addEventListener("click", async () => {
-        // Efek aktif pada kartu game yang dipilih
+        // Efek Visual Aktif
         gameCards.forEach(c => c.classList.remove("active"));
         card.classList.add("active");
 
         const currentGame = card.dataset.game;
 
-        /* ===== TAMPILKAN LOADING ===== */
+        // Tampilkan Loading
         itemList.innerHTML = `
             <div class="loading">
                 <span class="loader"></span>
-                Loading
+                Memuat Harga...
             </div>
         `;
 
         try {
-            // Delay halus untuk pengalaman pengguna (simulasi loading)
+            // Animasi loading buatan (600ms)
             await new Promise(res => setTimeout(res, 600));
 
             const res = await fetch(`data/${currentGame}.json`);
-            if (!res.ok) { // Cek jika response tidak OK (misal: 404 Not Found)
-                throw new Error("File data game tidak ditemukan.");
-            }
+            if (!res.ok) throw new Error("Data tidak ditemukan");
             
             const data = await res.json();
-            itemList.innerHTML = ""; // Bersihkan loading
+            itemList.innerHTML = ""; 
 
-            // Tampilkan item-item game
             data.items.forEach(item => {
                 const div = document.createElement("div");
                 div.className = "item-card";
@@ -88,8 +151,11 @@ gameCards.forEach(card => {
             });
 
         } catch (err) {
-            console.error("Error fetching data:", err); // Log error ke console
-            itemList.innerHTML = "<div class='loading' style='color: #ff6b6b;'>Data belum tersedia untuk game ini.</div>";
+            itemList.innerHTML = `
+                <div class="loading" style="color: #ff6b6b; flex-direction: column; gap: 5px;">
+                    <span>Gagal memuat data.</span>
+                    <small style="font-size: 10px; opacity: 0.7;">(Cek file data/${currentGame}.json)</small>
+                </div>`;
         }
     });
 });
