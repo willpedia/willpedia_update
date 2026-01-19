@@ -76,7 +76,7 @@ body {
 /* Bar Pencarian Samping */
 .nav-search {
   position: relative;
-  max-width: 140px; /* Ukuran pas untuk di samping menu */
+  max-width: 120px; /* Ukuran pas untuk di samping menu */
   transition: max-width 0.4s ease;
 }
 
@@ -531,6 +531,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
