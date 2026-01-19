@@ -48,6 +48,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-left: 0; 
+  margin-left: -10px;
 }
 
 .nav-logo img {
@@ -530,4 +531,5 @@ footer {
     transform: translateY(0);
   }
 }
+
 
