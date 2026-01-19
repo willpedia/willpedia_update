@@ -63,6 +63,99 @@ body {
   color: #ffe9ee;
 }
 
+/* Kelompok Kanan */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* Jarak antara search dan garis tiga */
+  flex: 1; /* Biar bisa fleksibel */
+  justify-content: flex-end; /* Dorong semua ke kanan */
+}
+
+/* Bar Pencarian Samping */
+.nav-search {
+  position: relative;
+  max-width: 140px; /* Ukuran pas untuk di samping menu */
+  transition: max-width 0.4s ease;
+}
+
+/* Efek Melebar saat diketik (Fokus) */
+.nav-search:focus-within {
+  max-width: 180px;
+}
+
+.nav-search input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 183, 197, 0.2);
+  border-radius: 20px;
+  padding: 6px 30px 6px 12px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
+.nav-search .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Overlay Pencarian */
+.search-results-overlay {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: 0; /* Sembunyi secara default */
+    background: rgba(15, 15, 18, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 95;
+    overflow-y: auto;
+    transition: height 0.3s ease;
+}
+
+.search-results-overlay.active {
+    height: calc(100vh - 56px);
+}
+
+.search-results-list {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px 14px;
+}
+
+/* Item hasil cari */
+.search-item {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 183, 197, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeUp 0.3s ease forwards;
+}
+
+.search-item:hover {
+    background: rgba(255, 183, 197, 0.05);
+}
+
+.search-item .item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-item .game-tag {
+    font-size: 10px;
+    color: #ffb7c5;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
 /* Container Utama */
 .slider {
   width: 100%;
@@ -103,6 +196,31 @@ body {
   color: #fff;
 }
 
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #ffb7c5; /* Warna Sakura */
+  width: 20px; /* Membuat titik aktif jadi lonjong */
+  border-radius: 4px;
+}
+
 /* Jalur Slide (Yang digerakkan JS) */
 .slides-track {
   display: flex; /* WAJIB: supaya gambar berjejer ke samping, bukan ke bawah */
@@ -127,6 +245,7 @@ body {
 
 /* HAMBURGER */
 .menu-btn {
+  flex-shrink: 0;
   background: none;
   border: none;
   display: flex;
