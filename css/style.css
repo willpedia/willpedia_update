@@ -46,7 +46,7 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   margin-left: 0; 
   margin-left: -10px;
 }
@@ -531,6 +531,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
