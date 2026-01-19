@@ -202,7 +202,8 @@ gameCards.forEach(card => {
 
         const currentGame = card.dataset.game;
         itemList.innerHTML = `<div class="loading"><span class="loader"></span> Memuat Harga...</div>`;
-
+        itemList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
         try {
             const res = await fetch(`data/${currentGame}.json`);
             if (!res.ok) throw new Error();
@@ -223,3 +224,4 @@ gameCards.forEach(card => {
         }
     });
 });
+
