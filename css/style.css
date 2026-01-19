@@ -68,7 +68,7 @@ body {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 55px; /* Jarak antara search dan garis tiga */
+  gap: 45px; /* Jarak antara search dan garis tiga */
   flex: 1; /* Biar bisa fleksibel */
   justify-content: flex-end; /* Dorong semua ke kanan */
 }
