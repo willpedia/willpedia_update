@@ -4,9 +4,10 @@
     { "name": "60 Oneiric Shard", "price": 12000 },
     { "name": "330 (300 + 30 Bonus) Oneiric Shard", "price": 55500 },
     { "name": "Express Suplly Pass", "price": 55500 },
-    { "name": "1090 (980 + 110 Bonus) Oneiric Shard", "price": 173500 },
-    { "name": "2240 (1980 + 260 Bonus) Oneiric Shard", "price": 351000 },
-    { "name": "3880 (3280 + 600 Bonus) Oneiric Shard", "price": 585000 },
-    { "name": "8080 (6480 + 1600 Bonus) Oneiric Shard", "price": 1116000 }
+    { "name": "1090 (980 + 110 Bonus) Oneiric Shard", "price": 170000 },
+    { "name": "2240 (1980 + 260 Bonus) Oneiric Shard", "price": 340000 },
+    { "name": "3880 (3280 + 600 Bonus) Oneiric Shard", "price": 583000 },
+    { "name": "8080 (6480 + 1600 Bonus) Oneiric Shard", "price": 1100000 }
   ]
 }
+
