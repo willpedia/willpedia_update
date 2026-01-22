@@ -2,14 +2,15 @@
   "game": "Genshin Impact",
   "items": [
     { "name": "60 Genesis Crystals", "price": 12000 },
-    { "name": "330 (300 + 30 Bonus) Genesis Crystal", "price": 55000 },
-    { "name": "Blessing of the Welkin Moon", "price": 55000 },
-    { "name": "1090 (980 + 110 Bonus) Genesis Crystals", "price": 170000 },
-    { "name": "2240 (1980 + 260 Bonus) Genesis Crystals", "price": 353000 },
-    { "name": "3880 (3280 + 600 Bonus) Genesis Crystals", "price": 580000 },
-    { "name": "8080 (6480 + 1600 Bonus) Genesis Crystals", "price": 1108000 }
+    { "name": "330 (300 + 30 Bonus) Genesis Crystal", "price": 56000 },
+    { "name": "Blessing of the Welkin Moon", "price": 56000 },
+    { "name": "1090 (980 + 110 Bonus) Genesis Crystals", "price": 172000 },
+    { "name": "2240 (1980 + 260 Bonus) Genesis Crystals", "price": 358000 },
+    { "name": "3880 (3280 + 600 Bonus) Genesis Crystals", "price": 588000 },
+    { "name": "8080 (6480 + 1600 Bonus) Genesis Crystals", "price": 1127000 }
   ]
 }
+
 
 
 
